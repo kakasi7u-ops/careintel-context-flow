@@ -1,7 +1,7 @@
 # CareIntel Website Plan
 
 ## Direction
-Build the selected **Case file editorial** concept across exactly five pages. Use graphite, clinical white, mineral blue, soft teal, and silver mist with Space Grotesk headings and DM Sans body copy.
+Build the selected **Asymmetric Narrative — premium editorial healthcare technology design** concept across exactly five pages. Use graphite, clinical white, mineral blue, soft teal, and silver mist with Space Grotesk headings and DM Sans body copy.
 
 The recurring visual language will be:
 - **Evidence Thread:** source → extracted fact → context → reviewer
@@ -11,15 +11,15 @@ The recurring visual language will be:
 ## Shared Experience
 - Create a sticky institutional navigation with desktop links, compact accessible mobile menu, and the supplied page structure.
 - Build reusable section, typography, evidence, timeline, workflow, architecture, CTA, and footer primitives so the pages feel related without repeating identical layouts.
-- Use custom CSS and SVG-like data compositions rather than stock imagery or dashboard mockups.
+- Use a carefully curated mix of authentic healthcare photography and custom CareIntel visualizations. Avoid generic stock-photo aesthetics, doctors-at-laptop imagery, unrelated business photography, and dashboard mockups.
 - Add restrained scroll reveals, evidence-thread movement, and precise hover feedback with reduced-motion fallbacks.
 - Maintain strong keyboard access, focus states, contrast, semantic headings, and intentionally recomposed mobile layouts.
 
 ## Pages
 
 ### 1. Home `/`
-- Match the selected asymmetric split hero while using the requested headline, supporting copy, and two CTAs.
-- Build the clinical information intelligence canvas: text, voice, document, image, extracted fields, timeline, provenance, reviewer draft, structured context, and qualified human review.
+- Treat the homepage hero as the highest-priority visual area, matching the selected asymmetric split composition while using the requested headline, supporting copy, and two CTAs.
+- Build a custom Care Intelligence Canvas—not a SaaS dashboard—combining text, voice, document, image, extracted fields, timeline, provenance, reviewer draft, structured context, and qualified human review.
 - Add the trust statement, fragmented-information story, Capture/Understand/Structure/Review sequence, multimodal flow, evidence provenance section, human-in-the-loop sequence, and final CTA.
 
 ### 2. Platform `/platform`
@@ -48,9 +48,10 @@ The recurring visual language will be:
 - Do not introduce customer names, logos, statistics, testimonials, certifications, partnerships, regulatory claims, deployment claims, or fabricated patient details.
 
 ## Technical Details
-- Implement within the project’s existing TanStack Start and TypeScript structure while delivering the requested URLs and behavior.
+- Keep the exact five routes: `/`, `/platform`, `/how-it-works`, `/technology`, and `/impact`.
+- Implement within the project’s existing TanStack Start and TypeScript structure. This Lovable project runtime does not support replacing it with Next.js App Router, but the file-based routing, server rendering, metadata, and font optimization goals will be delivered in the supported framework.
 - Use Tailwind v4 semantic tokens in the global design system; no hardcoded page-level colors.
-- Load Space Grotesk and DM Sans through document-head font links.
+- Optimize Space Grotesk and DM Sans as project fonts without unnecessary runtime font loading.
 - Give every page unique title, description, Open Graph title/description, `og:type`, and Twitter card metadata.
 - Keep visuals lightweight, reserve stable dimensions, lazy-load noncritical media where relevant, and avoid unnecessary dependencies.
 
