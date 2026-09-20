@@ -1,0 +1,14 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { FinalCta, PageIntro, SectionHeading } from "@/components/careintel/site";
+import { FlowLine } from "@/components/careintel/visuals";
+
+export const Route = createFileRoute("/platform")({ head:()=>({meta:[{title:"Platform — CareIntel"},{name:"description",content:"Explore CareIntel's multimodal intake, evidence processing, structured intelligence, retrieval, bounded AI assistance, and human review workflow."},{property:"og:title",content:"CareIntel Platform"},{property:"og:description",content:"One evidence-linked workflow from multimodal intake to human review."},{property:"og:type",content:"website"},{name:"twitter:card",content:"summary_large_image"}]}), component:Platform });
+const capabilities = [
+  ["01","Multimodal Intake",["Text","Voice","Documents","Images"]],
+  ["02","Evidence Processing",["OCR","Speech-to-text","Normalization","Confidence","Uncertainty"]],
+  ["03","Information Intelligence",["Extraction","Timeline","Missing information","Conflicts","Follow-up questions"]],
+  ["04","Knowledge Retrieval",["Trusted knowledge","Versioning","Dense retrieval","Full-text search","Evidence-linked context"]],
+  ["05","AI-Assisted Drafting",["Structured outputs","Evidence pointers","Validation","Bounded generation"]],
+  ["06","Human Review",["Review queue","Verification","Approval","Escalation","Referral","Handoff"]],
+] as const;
+function Platform(){return <><PageIntro eyebrow="The platform" title="Healthcare intelligence begins with better context." copy="CareIntel connects multimodal intake, evidence processing, information extraction, retrieval, AI assistance, and human review into one workflow."/><section className="border-y border-border bg-secondary/25"><div className="page-shell py-14"><FlowLine items={["Raw Input","Evidence","Structure","Context","Assistance","Review"]}/></div></section><section className="page-shell editorial-section"><SectionHeading label="Capabilities" title="A connected workflow, with clear boundaries."/><div className="mt-16">{capabilities.map(([n,title,items],i)=><article key={title} className={`grid gap-8 border-t border-border py-10 md:grid-cols-12 ${i%2?"md:text-right":""}`}><span className={`text-xs text-primary ${i%2?"md:col-start-12":""}`}>{n}</span><h2 className={`font-display text-3xl font-semibold md:col-span-4 ${i%2?"md:col-start-7 md:row-start-1":""}`}>{title}</h2><div className={`flex flex-wrap gap-2 md:col-span-6 ${i%2?"md:col-start-1 md:row-start-1 md:justify-start md:text-left":""}`}>{items.map(x=><span key={x} className="border border-border bg-card px-3 py-2 text-sm">{x}</span>)}</div></article>)}</div></section><FinalCta title="From raw input to reviewable context." primary="See How It Works"/></>}
