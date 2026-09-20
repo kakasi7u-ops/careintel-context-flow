@@ -1,0 +1,19 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PageIntro, FinalCta, SectionHeading } from "@/components/careintel/site";
+
+export const Route=createFileRoute("/how-it-works")({head:()=>({meta:[{title:"How It Works — CareIntel"},{name:"description",content:"Follow the CareIntel workflow from patient-provided input to structured, evidence-linked context for qualified human review."},{property:"og:title",content:"How CareIntel Works"},{property:"og:description",content:"From patient input to reviewer-ready context."},{property:"og:type",content:"website"},{name:"twitter:card",content:"summary_large_image"}]}),component:HowItWorks});
+const steps=[
+  ["Capture","Receive text, voice, documents, and images.","Input enters the workflow without interpretation."],
+  ["Consent","Record permission and permitted use.","Consent remains part of case state."],
+  ["Preserve Evidence","Retain the original source artifact.","The source remains available for review."],
+  ["Process Documents & Voice","Apply OCR and speech-to-text adapters.","Machine-readable material is linked to its origin."],
+  ["Extract Information","Organize relevant fields with confidence and uncertainty.","Extraction does not become a clinical decision."],
+  ["Build Timeline","Arrange supported events in sequence.","Different dates remain visible and traceable."],
+  ["Find Missing Information","Surface gaps and conflicting information.","Missing is not treated as no."],
+  ["Retrieve Trusted Context","Retrieve relevant, versioned knowledge.","Context is linked rather than silently assumed."],
+  ["Generate AI Draft","Prepare a bounded, structured reviewer draft.","The model assists; it does not authorize."],
+  ["Apply Safety Validation","Run schema, evidence, semantic, and policy checks.","Unsafe or unsupported output is stopped."],
+  ["Human Review","Present evidence-linked context to a qualified reviewer.","People verify, edit, approve, or escalate."],
+  ["Escalate / Refer / Complete","Record the reviewer-led next step.","The handoff remains explicit and auditable."],
+] as const;
+function HowItWorks(){return <><PageIntro eyebrow="How it works" title="From patient input to reviewer-ready context." copy="A structured journey keeps evidence, uncertainty, AI assistance, safety policy, and human decisions visibly separated."/><section className="page-shell pb-24"><div className="border-t border-border">{steps.map(([title,copy,role],i)=><article key={title} className="grid gap-5 border-b border-border py-8 md:grid-cols-[5rem_1fr_1fr]"><span className="text-xs text-primary">STEP {String(i+1).padStart(2,"0")}</span><div><h2 className="font-display text-2xl font-semibold">{title}</h2><p className="mt-2 text-sm leading-6 text-muted-foreground">{copy}</p></div><p className="border-l border-border pl-5 text-sm leading-6 text-muted-foreground">{role}</p></article>)}</div></section><section className="bg-foreground text-background"><div className="page-shell editorial-section"><SectionHeading label="Case journey" title="One neutral input. A visible chain of transformations." copy="Synthetic example only. No diagnosis or patient-specific conclusion is created."/><div className="mt-14 grid gap-3 md:grid-cols-4">{["Patient reports fever for several days…","Voice → Transcript","Document → OCR","Evidence → Structured field","Field → Timeline event","Missing information → Question","Trusted knowledge → Context","AI → Reviewer draft","Safety → Review queue","Reviewer → Decision"].map((x,i)=><div key={x} className={`min-h-28 border p-4 text-sm ${i===0?"border-accent bg-accent/15 md:col-span-2":"border-background/20"}`}><span className="mb-5 block text-xs text-accent">{String(i+1).padStart(2,"0")}</span>{x}</div>)}</div></div></section><FinalCta title="See how evidence becomes context." primary="Explore the Platform"/></>}
